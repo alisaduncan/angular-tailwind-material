@@ -4,6 +4,9 @@
 .reveal a {
   line-height: 1.3em; }
 
+span.italics {
+  font-style: italic; }
+
 .social-overlay {
   position: absolute;
   bottom: 3%;
