@@ -4,14 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Tailwind, Material, and Angular</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/alisa.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="lib/css/dracula.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -25,11 +25,91 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background-image="https://images.unsplash.com/photo-1472190649224-495422e1b602?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80">
+					<h1>Angular + Material + Tailwind CSS = 💖</h1>
+					<h4>Alisa Duncan</h4>
+				</section>
+				<section>
+					<h2>Tailwind CSS</h2>
+					<div>
+						<p class="fragment">Utility first CSS framework</p>
+						<p class="fragment">Responsive first</p>
+						<p class="fragment">Component friendly</p>
+						<p class="fragment">Customizable</p>
+					</div>
+				</section>
+				<section>
+					<h2>Adding Tailwind CSS to projects</h2>
+					<p class="fragment">Tailwind has a CLI tool to process CSS</p>
+					<p class="fragment">Or add it to your webpack config</p>
+					<p class="fragment">But what if you use Angular CLI?...</p>
+				</section>
+				<section>
+					<img class="plain" src="https://media.giphy.com/media/q8C0Ljmy4F6Ss/giphy.gif" />
+				</section>
+				<section>
+					<h2>Use a custom webpack builder</h2>
+					<p class="fragment">Modify <span class="italic">angular.json</span> to use a custom webpack builder</p>
+					<pre class="fragment"><code class="hljs" data-trim>
+"builder": "@angular-builders/custom-webpack:browser",
+					</code></pre>
+					<pre class="fragment"><code class="hljs" data-trim>
+"serve": {
+   "builder": "@angular-builders/custom-webpack:dev-server",
+   "options": {
+      "customWebpackConfig": {
+         "path": "webpack.config.js"
+      }
+   },
+},
+					</code></pre>
+				</section>
+				<section>
+					<h2>Create the webpack config</h2>
+					<p class="fragment">Let Angular CLI do the heavy lifting</p>
+					<p class="fragment">Just handle the Tailwind CSS part</p>
+				</section>
+				<section>
+				<h2>Simple webpack config</h2>
+						<pre><code class="hljs" data-trim>
+module.exports = {
+  module : {
+    rules: [
+      {
+        test   : /tailwind\.scss$/,
+        loader : 'postcss-loader',
+        options: {
+          plugins: () => [
+            require('tailwindcss')('./tailwind.config.js'),
+            require('autoprefixer'),
+          ]
+        }
+      }
+    ]
+  }
+};
+
+						</code></pre>
+				</section>
+				<section>
+					<h2>Enjoy using Tailwind CSS</h2>
+					<img class="plain" src="https://media.giphy.com/media/3o6vXZAgDjlr0QpdW8/giphy.gif" />
+				</section>
+				<section>
+					<h2>Add Material components</h2>
+					<p class="fragment">Use the schematics Angular Material team provides</p>
+					<pre class="fragment"><code class="hljs" data-trim>ng add @angular/material</code></pre>
+					<p class="fragment">No other changes needed! You have the power of both Tailwind CSS and Material.</p>
+				</section>
+				<section data-background="https://media.giphy.com/media/26n6IpOGtrxH9ef9m/giphy.gif">
+					<h2>Full steam ahead!</h2>
+				</section>
 			</div>
 		</div>
 
+		<div class="social-overlay">
+			<span>@AlisaDuncan</span> <span><img src="img/twitter.png"/></span> <span><img src="img/github.png"/></span> <span><img src="img/dev.png"/></span> <span>Angular + Material + Tailwind</span>
+		</div>
 		<script src="js/reveal.js"></script>
 
 		<script>

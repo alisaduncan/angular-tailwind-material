@@ -1,0 +1,59 @@
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400&display=swap');
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #f5f5f5;
+$mainFont: 'Open Sans', sans-serif;
+$mainColor: #484848;// #333;
+$headingFont: 'Quicksand', sans-serif;
+$headingColor: #233567; //#204969;
+// $headingColor: #756c83;
+$headingLetterSpacing: -0.05em;
+$headingTextShadow: none;
+
+$codeFont: 'Roboto Mono', monospace;
+$linkColor: #5eb7b7;// #3b759e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Fix links so they are not cut off
+.reveal a {
+  line-height: 1.3em;
+}
+
+.social-overlay {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  width: 80%;
+  span {
+    font-family: 'Quicksand', sans-serif;
+    color: #444f5a;
+    margin-right: 2%;
+
+    img {
+      max-height: 25px;
+    }
+  }
+}
+
+@mixin bodyBackground() {
+  background: $backgroundColor;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

@@ -1,9 +1,8 @@
 {
-  "name": "reveal.js",
-  "version": "3.8.0",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://revealjs.com",
-  "subdomain": "revealjs",
+  "name": "angular-tailwind-material",
+  "version": "0.0.0",
+  "description": "Using Tailwind CSS and Angular Material in an Angular Application",
+  "homepage": "https://alisaduncan.github.io/angular-tailwind-material/",
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
@@ -11,9 +10,7 @@
     "build": "grunt"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
+    "name": "Alisa Duncan"
   },
   "repository": {
     "type": "git",
